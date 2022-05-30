@@ -20,5 +20,9 @@ git clone https://github.com/lima-anderson/dockerized-application.git
 ```
 
 ```shell
+cd dockerized-application/back/
+```
+
+```shell
 mvn clean install
 ```
