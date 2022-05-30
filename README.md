@@ -16,5 +16,9 @@ sudo chmod +x /etc/profile.d/maven.sh && source /etc/profile.d/maven.sh && sudo 
 ```
 
 ```shell
+git clone https://github.com/lima-anderson/dockerized-application.git
+```
+
+```shell
 mvn clean install
 ```
