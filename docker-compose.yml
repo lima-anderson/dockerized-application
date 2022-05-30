@@ -1,0 +1,44 @@
+version: '3.7'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - 5432:5432
+    networks:
+      - udemy-network
+  backend:
+    build:
+      context: ./cadastro-alunos
+      dockerfile: ./Dockerfile
+    image: spring
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+    ports:
+      - 8080:8080 
+    command: mvn spring-boot:run
+    depends_on:
+      - db
+    networks:
+      - udemy-network
+  frontend:
+    build:
+      context: ./crud-react
+      dockerfile: ./Dockerfile
+    image: react
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+    ports:
+      - 80:80
+    depends_on:
+      - db
+    networks:
+      - udemy-network
+networks:
+    udemy-network:
+        driver: bridge
