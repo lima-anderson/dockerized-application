@@ -43,3 +43,10 @@ cd /home/vagrant/dockerized-application/front/
 ```shell
 docker build . -t react
 ```
+```shell
+cd /home/vagrant/dockerized-application/
+```
+
+```shell
+docker-compose up -d
+```
