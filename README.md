@@ -26,3 +26,20 @@ cd dockerized-application/back/
 ```shell
 mvn clean install
 ```
+
+```shell
+cd /home/vagrant/dockerized-application/back/
+```
+
+```shell
+docker build . -t spring
+```
+
+
+```shell
+cd /home/vagrant/dockerized-application/front/
+```
+
+```shell
+docker build . -t react
+```
