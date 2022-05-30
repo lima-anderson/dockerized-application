@@ -25,7 +25,7 @@ export class Alunos extends React.Component {
 
 
     buscarAluno(){
-        fetch("http://localhost:3000/alunos")
+        fetch("http://localhost:8080/alunos")
             .then(res => res.json())
             .then(dados => {
                 this.setState({ alunos: dados})
@@ -33,7 +33,7 @@ export class Alunos extends React.Component {
     }
 
     deletarAluno(id){
-        fetch("http://localhost:3000/alunos/"+id, {method: 'DELETE'})
+        fetch("http://localhost:8080/alunos/"+id, {method: 'DELETE'})
         .then(res => {
             if(res.ok) {
                 this.buscarAluno()
@@ -42,7 +42,7 @@ export class Alunos extends React.Component {
     }
 
     carregarAluno(id){
-        fetch("http://localhost:3000/alunos/"+id, {method: 'GET'})
+        fetch("http://localhost:8080/alunos/"+id, {method: 'GET'})
             .then(res => res.json())
             .then(aluno => {
                 this.setState({
@@ -54,7 +54,7 @@ export class Alunos extends React.Component {
     }
 
     cadastraAluno = (aluno) => {
-        fetch("http://localhost:3000/alunos/", {
+        fetch("http://localhost:8080/alunos/", {
             method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(aluno)})
@@ -67,7 +67,7 @@ export class Alunos extends React.Component {
     }
 
     atualizarAluno = (aluno) => {
-        fetch("http://localhost:3000/alunos/" + aluno.id, {
+        fetch("http://localhost:8080/alunos/" + aluno.id, {
             method: 'PUT',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(aluno)})
